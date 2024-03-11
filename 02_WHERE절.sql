@@ -65,17 +65,48 @@ WHERE hire_date LIKE '___05%'; -- 언더바3개넣은건데 5월생만찾으려고사용함 앞에슬
 -- 3개의 단어가잇기에 언더바3개를넣음 15/02/01 이면 15/ <<글자수3개라서 3번언더바 + 
 
 
-SELECT * FROM employees;
-WHERE commision_pct = null;
+SELECT * FROM employees
+WHERE commision_pct = null; --null은 =이걸로 비교안함 이건틀린방식
+SELECT * FROM employees
+WHERE commission_pct IS NULL;  --이방식이맞음
+SELECT * FROM employees
+WHERE commission_pct IS NOT NULL; --이건 NULL포함안된거
 
 
+--AND , OR 
+--AND가 OR 보다 연산순서가빠름
+SELECT * FROM employees 
+WHERE job_id = 'IT_PROG'
+OR job_id = 'FI_MGR'
+AND salary >= 6000;  --salary는 6000이넘어야하는걸출력하려햇는데 6000이하도 출력됨 and가 먼저연산되서
 
+SELECT * FROM employees 
+WHERE (job_id = 'IT_PROG'
+OR job_id = 'FI_MGR') 
+AND salary >= 6000;  --() 들어가면 () 먼저 연산 
 
+--데이터의 정렬(SELECT 구문의 가장 마지막에 배치됩니다.) 
+-- ASC : ascending 오름차순 -> 생략이 가능합니다
+--DESC : descending 내림차순 
+SELECT * FROM employees 
+ORDER BY hire_date ASC;   --ASC사용햇기에 hire_date가 빠른순서부터 늦은순서로 
 
+SELECT * FROM employees 
+ORDER BY hire_date DESC;  --이건 위랑반대로 입사날짜 늦은순부터 (내림차순) 
 
+SELECT * FROM employees
+WHERE job_id = 'IT_PROG'
+ORDER BY fist_name ASC;  --ASC안써도되긴함 안쓰면 기본asc임
 
+SELECT * FROM employees
+WHERE salary >= 5000
+ORDER BY employee_id DESC;
 
-
+SELECT
+  first_name,
+  salary*12 AS Pay
+FROM employees 
+ORDER BY pay ASC; 
 
 
 
