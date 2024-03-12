@@ -6,7 +6,7 @@ SELECT
     MAX(salary),  --열의 최대값
     MIN(salary), -- 열의 최소값
     SUM(salary), -- 열의 합계 값
-    COUNT(salary) -- 열의 행 수 null은포함x
+    COUNT(salary) -- 열의 행 수 null은포함x--
 FROM employees;
 
 SELECT COUNT(*) FROM employees; -- 총 행 데이터의 수

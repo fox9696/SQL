@@ -77,7 +77,7 @@ FROM employees e
 LEFT JOIN departments d
 ON e.department_id = d.department_id
 WHERE e.first_name = 'Steven'
-AND e.last_name = 'King';
+AND e.last_name = 'King';--
 
 
 /*

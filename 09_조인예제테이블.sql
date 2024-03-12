@@ -4,7 +4,7 @@ CREATE TABLE info (
     title VARCHAR2(100),
     content VARCHAR2(100),
     regdate DATE DEFAULT sysdate NOT NULL,
-    CONSTRAINT info_pk PRIMARY KEY
+    CONSTRAINT info_pk PRIMARY KEY--
     (
     id
     )

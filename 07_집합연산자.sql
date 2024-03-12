@@ -4,7 +4,7 @@
 -- 위 아래 column 개수와 데이터 타입이 정확히 일치해야 합니다.
 
 SELECT 
-employee_id , first_name
+employee_id , first_name--
 FROM employees
 WHERE hire_date LIKE '04%'
 

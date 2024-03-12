@@ -130,7 +130,7 @@ first_name ,
 manager_id ,
 DECODE(manager_id, 100,'사원' ,120,'주임',121,'대리',122,'과장' ,'임원'  )AS 직급 
 FROM employees
-WHERE department_id =50;
+WHERE department_id =50; --
 
 
 
