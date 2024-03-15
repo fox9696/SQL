@@ -77,9 +77,10 @@ WHERE EXISTS (SELECT 1 FROM job_history jh
               
 SELECT * FROM employees e
 WHERE EXISTS (SELECT 1 FROM departments d
-              WHERE e.department_id = e.department_id);
+              WHERE e.department_id = d.department_id); 
                  
-                 
+    
+             
 --------------------------------------------------------------
 
 --SELECT 절에 서브쿼리를 붙이기.

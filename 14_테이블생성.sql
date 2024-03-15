@@ -11,7 +11,7 @@
 CREATE TABLE dept2 (
    dept_no NUMBER(2), 
    dept_name VARCHAR2(14) ,
-   loca VARCHAR(15) , 
+   loca VARCHAR2(15) , 
    dept_date DATE,
    dept_bonus NUMBER(10)
 );
@@ -21,6 +21,50 @@ SELECT * FROM dept2;
 --NUMBER와 VARCHAR2 타입의 길이를 확인
 INSERT INTO dept2
 VALUES(30,'경영지원','경기도',sysdate,2000000000);
+
+--컬럼 추가
+ALTER TABLE dept2
+ADD dept_count NUMBER(3);
+
+-- 컬럼명 변경
+ALTER TABLE dept2
+RENAME COLUMN dept_count TO emp_count;
+
+--컬럼 속성 수정
+--만약 변경하고자 하는 컬럼에 데이터가 이미 존재한다면 , 그에 맞는 타입으로
+--변경해주셔야 합니다 . 맞지않는 타입으로는 변경이 불가능합니다.
+--ddl : CREATE ALTER DROP 등.. DDL은 선언시 자동으로커밋됨 롤백불가능 그래서 선언하고 롤백해도 이미 커밋되있음
+ALTER TABLE dept2
+MODIFY emp_count VARCHAR2(10);
+
+-- DDL ( CREATE, ALTER , TRUNCATE , DROP ) 은 트랜잭션의대상이 아닙니다
+ROLLBACK;
+
+--컬럼삭제
+ALTER TABLE dept2
+DROP COLUMN dept_bonus;
+
+SELECT * FROM dept3; --밑에서 이름변경함 3으로
+
+--테이블 이름 변경
+ALTER TABLE dept2
+RENAME TO dept3;
+
+--테이블삭제  (구조는 남겨두고 내부데이터만 모두삭제)
+TRUNCATE TABLE dept3;
+
+--테이블삭제 (아예 테이블삭제)
+DROP TABLE dept3;
+
+ROLLBACK;
+
+
+
+
+
+
+
+
 
 
 
